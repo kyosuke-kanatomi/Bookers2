@@ -1,0 +1,46 @@
+
+
+
+<h2>User info</h2>
+  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+
+  <table class="table">
+
+    <tr>
+      <th>Name</th>
+      <th><%= user.name %></th>
+    </tr>
+
+    <tr>
+      <th>Introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+
+  </table>
+
+  <%=link_to  edit_user_path(current_user)  do %>
+    <i class="col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_path">
+    </i>
+  <% end %><br>
+
+<h2>New book</h2>
+<%= bootstrap_form_for(book) do |f| %>
+
+  <% if book.errors.any? %>
+    <h2><%= book.errors.count %>errors prohibited this obj from being saved:</h2>
+    <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<label>Title</label>
+  <input class="col-xs-12 book_title" type="text" name="book[title]" id="book_title"><br>
+
+<label>Opinion</label>
+  <textarea class="form-control" name="book[body]" id="book_body"></textarea><br>
+
+<%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+
+<% end %>

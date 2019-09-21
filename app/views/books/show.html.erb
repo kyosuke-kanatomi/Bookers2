@@ -1,0 +1,48 @@
+<div class="container">
+
+<% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <div class="row">
+
+    <div class="col-lg-3">
+     <%= render 'books/list', {user: @user, book: @book} %>
+    </div>
+
+    <div class="col-lg-9">
+      <h2>Book detail</h2>
+      <table class="table table-condensed">
+          <tr>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'50x50' %></td>
+            <td><%= link_to @books.title , book_path(@books.id) %></td>
+            <td><%= @books.body %></td>
+            <th>
+              <% if @books.user == current_user %>
+                <%=link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
+              <% end %>
+            </th>
+            <th>
+              <% if @books.user == current_user %>
+                <%=link_to "Destroy", book_path(@books), class: "btn btn-danger", method: :delete, data: {confirm: "削除しますか？"} %>
+              <% end %>
+            </th>
+          </tr>
+      </table>
+      <%= link_to @user.name ,user_path(@user.id)%>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-9">
+        CopyRight Infratop.inc
+      </div>
+    </div>
+  </div>
+</footer>
