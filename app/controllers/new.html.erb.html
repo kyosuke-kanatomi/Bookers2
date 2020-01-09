@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<div class="col-lg-8">
+
+<% if @deliveries.errors.any? %>
+            <%= @deliveries.errors.count %>件のerrorが発生しました
+            <% @deliveries.errors.full_messages.each do |message| %>
+                <%= message %>
+            <% end %>
+        <% end %>
+<h1>お届け先住所登録</h1>
+
+<%= form_for @deliveries do |f| %>
+<div class="field">
+<div class="col-log-3">
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+</div>
+
+<div class="field">
+<div class="col-log-3">
+    <%= f.label :email, "郵便番号" %>
+    <%= f.text_field :post_code %>
+</div>
+
+<div class="field">
+<div class="col-log-3">
+    <%= f.label :email, "住所（都道府県）" %>
+    <%= f.text_field :prefecture %>
+</div>
+
+<div class="field">
+<div class="col-log-3">
+    <%= f.label :email, "住所（市区町村）" %>
+    <%= f.text_field :municipality %>
+</div>
+
+<div class="field">
+<div class="col-log-3">
+    <%= f.label :email, "住所（番地・建物名）" %>
+    <%= f.text_field :address %>
+</div>
+
+<div class="field">
+<div class="col-log-3">
+    <%= f.label :email, "電話番号" %>
+    <%= f.text_field :telephone %>
+</div>
+
+<div class="actions">
+    <%= f.submit "登録する", class: "btn btn-primary" %>
+</div>
+
+<%=link_to '一覧に戻る', "/deliveries/", class: "btn btn-default" %>
+
+<% end %>

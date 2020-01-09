@@ -1,0 +1,22 @@
+current directory: /vagrant/bookers/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+/usr/bin/ruby2.5 -r ./siteconf20190930-2842-maakrn.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /vagrant/bookers/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0.38 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/bookers/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 0.36 s in the future
+compiling unf.cc
+linking shared-object unf_ext.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/bookers/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.6/ext/unf_ext
+make "DESTDIR=" install
+make: Warning: File 'unf_ext.so' has modification time 0.37 s in the future
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20190930-2842-1k3y9mn
+make: warning:  Clock skew detected.  Your build may be incomplete.
